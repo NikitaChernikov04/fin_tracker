@@ -42,22 +42,22 @@ const Dashboard: React.FC = () => {
     <Grid container spacing={{ xs: 0, md: 2 }} direction={{ xs: 'column', md: 'row' }} sx={{ pb: 0, mx: 'auto' }}>
       {/* @ts-ignore */}
       <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-        <Card sx={{ bgcolor: 'background.paper', boxShadow: 4, borderRadius: 2, p: { xs: 1.5, sm: 2 }, mb: 2, flex: 1, minHeight: 160 }}>
+        <Card sx={{ bgcolor: 'background.paper', boxShadow: 4, borderRadius: 1, p: 1, mb: 1, flex: 1 }}>
           <CardContent sx={{ p: 0, textAlign: 'center' }}>
-            <Typography variant="h6" color="text.secondary" gutterBottom sx={{ fontWeight: 500, fontSize: 18, textAlign: 'center' }}>
+            <Typography variant="h6" color="text.secondary" gutterBottom sx={{ fontWeight: 500, fontSize: 16, textAlign: 'center' }}>
               Баланс
             </Typography>
-            <Typography variant="h2" color={balance >= 0 ? 'success.main' : 'error.main'} fontWeight={700} sx={{ fontSize: { xs: 32, sm: 48 }, textAlign: 'center' }}>
+            <Typography variant="h2" color={balance >= 0 ? 'success.main' : 'error.main'} fontWeight={700} sx={{ fontSize: 24, textAlign: 'center' }}>
               {balance.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
             </Typography>
           </CardContent>
         </Card>
-        <Card sx={{ bgcolor: 'background.paper', boxShadow: 3, borderRadius: 2, p: { xs: 1.5, sm: 2 }, mb: 2, flex: 1, minHeight: 160 }}>
+        <Card sx={{ bgcolor: 'background.paper', boxShadow: 3, borderRadius: 1, p: 1, mb: 1, flex: 1 }}>
           <CardContent sx={{ p: 0, textAlign: 'center' }}>
-            <Typography variant="subtitle1" color="text.secondary" gutterBottom sx={{ fontWeight: 500, textAlign: 'center' }}>
+            <Typography variant="subtitle1" color="text.secondary" gutterBottom sx={{ fontWeight: 500, fontSize: 15, textAlign: 'center' }}>
               Бюджет месяца
             </Typography>
-            <Typography variant="h4" color="primary" fontWeight={700} sx={{ fontSize: { xs: 20, sm: 32 }, textAlign: 'center' }}>
+            <Typography variant="h4" color="primary" fontWeight={700} sx={{ fontSize: 18, textAlign: 'center' }}>
               {budgetTotal.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB' })}
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
@@ -71,13 +71,13 @@ const Dashboard: React.FC = () => {
       </Grid>
       {/* @ts-ignore */}
       <Grid item xs={12} md={6} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-        <Card sx={{ bgcolor: 'background.paper', boxShadow: 3, borderRadius: 2, p: { xs: 1.5, sm: 2 }, mb: 2, flex: 1, minHeight: 160 }}>
+        <Card sx={{ bgcolor: 'background.paper', boxShadow: 3, borderRadius: 1, p: 1, mb: 1, flex: 1 }}>
           <CardContent sx={{ p: 0, textAlign: 'center' }}>
-            <Typography variant="subtitle1" color="text.secondary" gutterBottom sx={{ fontWeight: 500, textAlign: 'center' }}>
+            <Typography variant="subtitle1" color="text.secondary" gutterBottom sx={{ fontWeight: 500, fontSize: 15, textAlign: 'center' }}>
               Копилки
             </Typography>
             <Box sx={{ width: '100%', mt: 2 }}>
-              <Box sx={{ bgcolor: 'grey.200', borderRadius: 2, height: 16, overflow: 'hidden' }}>
+              <Box sx={{ bgcolor: 'grey.200', borderRadius: 2, height: 12, overflow: 'hidden' }}>
                 <Box sx={{ width: `${piggyProgress * 100}%`, bgcolor: 'success.main', height: '100%', transition: 'width 0.5s' }} />
               </Box>
               <Typography variant="body2" color="text.secondary" sx={{ mt: 1, textAlign: 'center' }}>
@@ -86,16 +86,16 @@ const Dashboard: React.FC = () => {
             </Box>
           </CardContent>
         </Card>
-        <Card sx={{ bgcolor: 'background.paper', boxShadow: 2, borderRadius: 2, p: { xs: 1.5, sm: 2 }, flex: 1, minHeight: 160 }}>
+        <Card sx={{ bgcolor: 'background.paper', boxShadow: 2, borderRadius: 1, p: 1, flex: 1 }}>
           <CardContent sx={{ p: 0, textAlign: 'center' }}>
-            <Typography variant="subtitle1" color="text.secondary" gutterBottom sx={{ fontWeight: 500, textAlign: 'center' }}>
+            <Typography variant="subtitle1" color="text.secondary" gutterBottom sx={{ fontWeight: 500, fontSize: 15, textAlign: 'center' }}>
               Диаграмма расходов по категориям
             </Typography>
-            <Box sx={{ height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'grey.400' }}>
+            <Box sx={{ height: 120, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'grey.400' }}>
               {pieData.length === 0 ? (
                 <Typography color="text.secondary">Нет расходов для отображения</Typography>
               ) : (
-                <ResponsiveContainer width="100%" height={180}>
+                <ResponsiveContainer width="100%" height={120}>
                   <PieChart>
                     <Pie
                       data={pieData}
@@ -103,7 +103,7 @@ const Dashboard: React.FC = () => {
                       nameKey="name"
                       cx="50%"
                       cy="50%"
-                      outerRadius={70}
+                      outerRadius={45}
                       label
                     >
                       {pieData.map((entry, idx) => (

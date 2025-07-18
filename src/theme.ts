@@ -12,7 +12,7 @@ const theme = createTheme({
       contrastText: '#47624F',
     },
     background: {
-      default: '#F4F6EE',
+      default: '#F0F2E9',
       paper: '#fff',
     },
     success: {
@@ -27,7 +27,7 @@ const theme = createTheme({
     },
   },
   shape: {
-    borderRadius: 8,
+    borderRadius: 6,
   },
 });
 
